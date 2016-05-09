@@ -51,8 +51,6 @@ public class CargoBean {
         this.descCargo = descCargo;
     }
     
-    
-    
-    
+
     
 }
