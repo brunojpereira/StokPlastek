@@ -5,11 +5,19 @@
  */
 package gui;
 
+import controller.ProdutoController;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 12141000464
  */
 public class GuiCadProduto extends javax.swing.JFrame {
+    ProdutoController prod = new ProdutoController();
+    String modo="pesquisa";
+    ResultSet rsPesquisa=null;
 
     /**
      * Creates new form GuiCadProduto
@@ -27,21 +35,1316 @@ public class GuiCadProduto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pangProduto = new javax.swing.JTabbedPane();
+        PanPesquisa = new javax.swing.JPanel();
+        txtPesquisa_produto = new javax.swing.JTextField();
+        botNovo_produto = new javax.swing.JButton();
+        botEditar_produto = new javax.swing.JButton();
+        botExcluir_produto = new javax.swing.JButton();
+        panTabela = new javax.swing.JScrollPane();
+        tblProduto = new javax.swing.JTable();
+        lblPesquisar2 = new javax.swing.JLabel();
+        PanCadastro = new javax.swing.JPanel();
+        botSalvar = new javax.swing.JButton();
+        botLimpar = new javax.swing.JButton();
+        botCancelar = new javax.swing.JButton();
+        txtNome_produto = new javax.swing.JTextField();
+        txtId_produto = new javax.swing.JTextField();
+        lblId_produto = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblObs = new javax.swing.JLabel();
+        panDescricao = new javax.swing.JScrollPane();
+        txtDescricao_produto = new javax.swing.JTextArea();
+        lblPreco = new javax.swing.JLabel();
+        txtPreco_produto = new javax.swing.JTextField();
+        pangProduto1 = new javax.swing.JTabbedPane();
+        PanPesquisa1 = new javax.swing.JPanel();
+        txtPesquisa_produto1 = new javax.swing.JTextField();
+        botNovo_produto1 = new javax.swing.JButton();
+        botEditar_produto1 = new javax.swing.JButton();
+        botExcluir_produto1 = new javax.swing.JButton();
+        panTabela1 = new javax.swing.JScrollPane();
+        tblProduto1 = new javax.swing.JTable();
+        lblPesquisar3 = new javax.swing.JLabel();
+        PanCadastro1 = new javax.swing.JPanel();
+        botSalvar1 = new javax.swing.JButton();
+        botLimpar1 = new javax.swing.JButton();
+        botCancelar1 = new javax.swing.JButton();
+        txtNome_produto1 = new javax.swing.JTextField();
+        txtId_produto1 = new javax.swing.JTextField();
+        lblId_produto1 = new javax.swing.JLabel();
+        lblNome1 = new javax.swing.JLabel();
+        lblObs1 = new javax.swing.JLabel();
+        panDescricao1 = new javax.swing.JScrollPane();
+        txtDescricao_produto1 = new javax.swing.JTextArea();
+
+        pangProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pangProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pangProdutoFocusGained(evt);
+            }
+        });
+
+        PanPesquisa.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        txtPesquisa_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPesquisa_produto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPesquisa_produtoFocusGained(evt);
+            }
+        });
+        txtPesquisa_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisa_produtoActionPerformed(evt);
+            }
+        });
+        txtPesquisa_produto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisa_produtoKeyReleased(evt);
+            }
+        });
+
+        botNovo_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botNovo_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Novo.png"))); // NOI18N
+        botNovo_produto.setText("Novo");
+        botNovo_produto.setIconTextGap(15);
+        botNovo_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botNovo_produtoActionPerformed(evt);
+            }
+        });
+
+        botEditar_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botEditar_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Editar.png"))); // NOI18N
+        botEditar_produto.setText("Editar");
+        botEditar_produto.setIconTextGap(15);
+        botEditar_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEditar_produtoActionPerformed(evt);
+            }
+        });
+
+        botExcluir_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botExcluir_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Excluir.png"))); // NOI18N
+        botExcluir_produto.setText("Excluir");
+        botExcluir_produto.setIconTextGap(15);
+        botExcluir_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botExcluir_produtoActionPerformed(evt);
+            }
+        });
+
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblProduto.setSelectionMode();
+        tblProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tblProdutoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tblProdutoFocusLost(evt);
+            }
+        });
+        tblProduto.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tblProdutoComponentShown(evt);
+            }
+        });
+        panTabela.setViewportView(tblProduto);
+
+        lblPesquisar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPesquisar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Pesquisar.png"))); // NOI18N
+        lblPesquisar2.setText("Pesquisar:");
+
+        javax.swing.GroupLayout PanPesquisaLayout = new javax.swing.GroupLayout(PanPesquisa);
+        PanPesquisa.setLayout(PanPesquisaLayout);
+        PanPesquisaLayout.setHorizontalGroup(
+            PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panTabela, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisaLayout.createSequentialGroup()
+                        .addComponent(botNovo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botEditar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botExcluir_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisaLayout.createSequentialGroup()
+                        .addComponent(lblPesquisar2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPesquisa_produto)))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        PanPesquisaLayout.setVerticalGroup(
+            PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisaLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPesquisa_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPesquisar2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botNovo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botEditar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botExcluir_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pangProduto.addTab("Produtos", PanPesquisa);
+
+        PanCadastro.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        botSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Salvar.png"))); // NOI18N
+        botSalvar.setText("Salvar");
+        botSalvar.setIconTextGap(10);
+        botSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botSalvarActionPerformed(evt);
+            }
+        });
+
+        botLimpar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Limpar.png"))); // NOI18N
+        botLimpar.setText("Limpar");
+        botLimpar.setIconTextGap(10);
+        botLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botLimparActionPerformed(evt);
+            }
+        });
+
+        botCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Cancelar.png"))); // NOI18N
+        botCancelar.setText("Cancelar");
+        botCancelar.setIconTextGap(5);
+        botCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botCancelarActionPerformed(evt);
+            }
+        });
+
+        txtNome_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome_produtoActionPerformed(evt);
+            }
+        });
+
+        txtId_produto.setEditable(false);
+        txtId_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lblId_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblId_produto.setText("Código:");
+
+        lblNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNome.setText("Nome:");
+
+        lblObs.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblObs.setText("Descrição:");
+
+        txtDescricao_produto.setColumns(20);
+        txtDescricao_produto.setRows(1);
+        panDescricao.setViewportView(txtDescricao_produto);
+
+        lblPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPreco.setText("Preço:");
+
+        txtPreco_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPreco_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPreco_produtoActionPerformed(evt);
+            }
+        });
+        txtPreco_produto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPreco_produtoFocusLost(evt);
+            }
+        });
+        txtPreco_produto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanCadastroLayout = new javax.swing.GroupLayout(PanCadastro);
+        PanCadastro.setLayout(PanCadastroLayout);
+        PanCadastroLayout.setHorizontalGroup(
+            PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanCadastroLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPreco_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(lblId_produto)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtId_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(botSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botCancelar)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        PanCadastroLayout.setVerticalGroup(
+            PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanCadastroLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtId_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId_produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPreco_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botSalvar)
+                    .addComponent(botLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botCancelar))
+                .addGap(60, 60, 60))
+        );
+
+        pangProduto.addTab("Cadastrar", PanCadastro);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pangProduto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pangProduto1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pangProduto1FocusGained(evt);
+            }
+        });
+
+        PanPesquisa1.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        txtPesquisa_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPesquisa_produto1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPesquisa_produto1FocusGained(evt);
+            }
+        });
+        txtPesquisa_produto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisa_produto1ActionPerformed(evt);
+            }
+        });
+        txtPesquisa_produto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisa_produto1KeyReleased(evt);
+            }
+        });
+
+        botNovo_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botNovo_produto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Novo.png"))); // NOI18N
+        botNovo_produto1.setText("Novo");
+        botNovo_produto1.setIconTextGap(15);
+        botNovo_produto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botNovo_produto1ActionPerformed(evt);
+            }
+        });
+
+        botEditar_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botEditar_produto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Editar.png"))); // NOI18N
+        botEditar_produto1.setText("Editar");
+        botEditar_produto1.setIconTextGap(15);
+        botEditar_produto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEditar_produto1ActionPerformed(evt);
+            }
+        });
+
+        botExcluir_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botExcluir_produto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Excluir.png"))); // NOI18N
+        botExcluir_produto1.setText("Excluir");
+        botExcluir_produto1.setIconTextGap(15);
+        botExcluir_produto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botExcluir_produto1ActionPerformed(evt);
+            }
+        });
+
+        tblProduto1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblProduto1.setSelectionMode();
+        tblProduto1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tblProduto1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tblProduto1FocusLost(evt);
+            }
+        });
+        tblProduto1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tblProduto1ComponentShown(evt);
+            }
+        });
+        panTabela1.setViewportView(tblProduto1);
+
+        lblPesquisar3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPesquisar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Pesquisar.png"))); // NOI18N
+        lblPesquisar3.setText("Pesquisar:");
+
+        javax.swing.GroupLayout PanPesquisa1Layout = new javax.swing.GroupLayout(PanPesquisa1);
+        PanPesquisa1.setLayout(PanPesquisa1Layout);
+        PanPesquisa1Layout.setHorizontalGroup(
+            PanPesquisa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisa1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanPesquisa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panTabela1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisa1Layout.createSequentialGroup()
+                        .addComponent(botNovo_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botEditar_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botExcluir_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisa1Layout.createSequentialGroup()
+                        .addComponent(lblPesquisar3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPesquisa_produto1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PanPesquisa1Layout.setVerticalGroup(
+            PanPesquisa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisa1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(PanPesquisa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPesquisa_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPesquisar3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panTabela1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PanPesquisa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botEditar_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botExcluir_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botNovo_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+
+        pangProduto1.addTab("Produtos", PanPesquisa1);
+
+        PanCadastro1.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        botSalvar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Salvar.png"))); // NOI18N
+        botSalvar1.setText("Salvar");
+        botSalvar1.setIconTextGap(10);
+        botSalvar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botSalvar1ActionPerformed(evt);
+            }
+        });
+
+        botLimpar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botLimpar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Limpar.png"))); // NOI18N
+        botLimpar1.setText("Limpar");
+        botLimpar1.setIconTextGap(10);
+        botLimpar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botLimpar1ActionPerformed(evt);
+            }
+        });
+
+        botCancelar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Cancelar.png"))); // NOI18N
+        botCancelar1.setText("Cancelar");
+        botCancelar1.setIconTextGap(5);
+        botCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botCancelar1ActionPerformed(evt);
+            }
+        });
+
+        txtNome_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome_produto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome_produto1ActionPerformed(evt);
+            }
+        });
+
+        txtId_produto1.setEditable(false);
+        txtId_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lblId_produto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblId_produto1.setText("Código:");
+
+        lblNome1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNome1.setText("Nome:");
+
+        lblObs1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblObs1.setText("Descrição:");
+
+        txtDescricao_produto1.setColumns(20);
+        txtDescricao_produto1.setRows(1);
+        panDescricao1.setViewportView(txtDescricao_produto1);
+
+        javax.swing.GroupLayout PanCadastro1Layout = new javax.swing.GroupLayout(PanCadastro1);
+        PanCadastro1.setLayout(PanCadastro1Layout);
+        PanCadastro1Layout.setHorizontalGroup(
+            PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanCadastro1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanCadastro1Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(txtNome_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastro1Layout.createSequentialGroup()
+                        .addComponent(lblId_produto1)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtId_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastro1Layout.createSequentialGroup()
+                        .addComponent(lblObs1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panDescricao1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanCadastro1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(botSalvar1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botCancelar1)))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        PanCadastro1Layout.setVerticalGroup(
+            PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanCadastro1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtId_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId_produto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome_produto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panDescricao1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObs1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(PanCadastro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botCancelar1)
+                    .addComponent(botSalvar1))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        pangProduto1.addTab("Cadastrar", PanCadastro1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pangProduto1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pangProduto1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPesquisa_produtoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPesquisa_produtoFocusGained
+        botEditar_produto.setEnabled(false);
+        botExcluir_produto.setEnabled(false);
+        if(!modo.equals("pesquisa")){
+            botNovo_produto.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtPesquisa_produtoFocusGained
+    
+    private ResultSet atualizarTabela(String sql){
+        ResultSet rsProduto = null;
+        final DefaultTableModel modelo = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        try {
+            modelo.addColumn("Código");
+            modelo.addColumn("Nome");
+            modelo.addColumn("Descrição");
+            modelo.addColumn("Preço");
+           
+            
+            tblProduto.setModel(modelo);
+            rsProduto=cnnProduto.consultar(sql);
+        
+            while(rsProduto.next()){
+                modelo.addRow(new Object[]{
+                    rsProduto.getInt("id_produto"),
+                    rsProduto.getString("nome_produto"),
+                    rsProduto.getString("descricao_produto"),
+                    rsProduto.getFloat("preco_produto")  
+                });
+            }
+            tblProduto.setModel(modelo);
+            tblProduto.setSelectionMode(0);
+            rsProduto.beforeFirst(); // volta para o inicio
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Erro na inicialização: " + e);
+        }
+        return rsProduto;
+    }
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        pangProduto = new javax.swing.JTabbedPane();
+        PanPesquisa = new javax.swing.JPanel();
+        txtPesquisa_produto = new javax.swing.JTextField();
+        botNovo_produto = new javax.swing.JButton();
+        botEditar_produto = new javax.swing.JButton();
+        botExcluir_produto = new javax.swing.JButton();
+        panTabela = new javax.swing.JScrollPane();
+        tblProduto = new javax.swing.JTable();
+        lblPesquisar2 = new javax.swing.JLabel();
+        PanCadastro = new javax.swing.JPanel();
+        botSalvar = new javax.swing.JButton();
+        botLimpar = new javax.swing.JButton();
+        botCancelar = new javax.swing.JButton();
+        txtNome_produto = new javax.swing.JTextField();
+        txtId_produto = new javax.swing.JTextField();
+        lblId_produto = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblObs = new javax.swing.JLabel();
+        panDescricao = new javax.swing.JScrollPane();
+        txtDescricao_produto = new javax.swing.JTextArea();
+        lblPreco = new javax.swing.JLabel();
+        txtPreco_produto = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
+        pangProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pangProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pangProdutoFocusGained(evt);
+            }
+        });
+
+        PanPesquisa.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        txtPesquisa_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPesquisa_produto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPesquisa_produtoFocusGained(evt);
+            }
+        });
+        txtPesquisa_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisa_produtoActionPerformed(evt);
+            }
+        });
+        txtPesquisa_produto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisa_produtoKeyReleased(evt);
+            }
+        });
+
+        botNovo_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botNovo_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Novo.png"))); // NOI18N
+        botNovo_produto.setText("Novo");
+        botNovo_produto.setIconTextGap(15);
+        botNovo_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botNovo_produtoActionPerformed(evt);
+            }
+        });
+
+        botEditar_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botEditar_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Editar.png"))); // NOI18N
+        botEditar_produto.setText("Editar");
+        botEditar_produto.setIconTextGap(15);
+        botEditar_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botEditar_produtoActionPerformed(evt);
+            }
+        });
+
+        botExcluir_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botExcluir_produto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Excluir.png"))); // NOI18N
+        botExcluir_produto.setText("Excluir");
+        botExcluir_produto.setIconTextGap(15);
+        botExcluir_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botExcluir_produtoActionPerformed(evt);
+            }
+        });
+
+        tblProduto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblProduto.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblProduto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tblProdutoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tblProdutoFocusLost(evt);
+            }
+        });
+        tblProduto.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                tblProdutoComponentShown(evt);
+            }
+        });
+        panTabela.setViewportView(tblProduto);
+
+        lblPesquisar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPesquisar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Pesquisar.png"))); // NOI18N
+        lblPesquisar2.setText("Pesquisar:");
+
+        javax.swing.GroupLayout PanPesquisaLayout = new javax.swing.GroupLayout(PanPesquisa);
+        PanPesquisa.setLayout(PanPesquisaLayout);
+        PanPesquisaLayout.setHorizontalGroup(
+            PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panTabela, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisaLayout.createSequentialGroup()
+                        .addComponent(botNovo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botEditar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botExcluir_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanPesquisaLayout.createSequentialGroup()
+                        .addComponent(lblPesquisar2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPesquisa_produto)))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        PanPesquisaLayout.setVerticalGroup(
+            PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanPesquisaLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPesquisa_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPesquisar2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PanPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botNovo_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botEditar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botExcluir_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pangProduto.addTab("Produtos", PanPesquisa);
+
+        PanCadastro.setPreferredSize(new java.awt.Dimension(669, 328));
+
+        botSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Salvar.png"))); // NOI18N
+        botSalvar.setText("Salvar");
+        botSalvar.setIconTextGap(10);
+        botSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botSalvarActionPerformed(evt);
+            }
+        });
+
+        botLimpar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Limpar.png"))); // NOI18N
+        botLimpar.setText("Limpar");
+        botLimpar.setIconTextGap(10);
+        botLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botLimparActionPerformed(evt);
+            }
+        });
+
+        botCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        botCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Cancelar.png"))); // NOI18N
+        botCancelar.setText("Cancelar");
+        botCancelar.setIconTextGap(5);
+        botCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botCancelarActionPerformed(evt);
+            }
+        });
+
+        txtNome_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNome_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome_produtoActionPerformed(evt);
+            }
+        });
+
+        txtId_produto.setEditable(false);
+        txtId_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        lblId_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblId_produto.setText("Código:");
+
+        lblNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNome.setText("Nome:");
+
+        lblObs.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblObs.setText("Descrição:");
+
+        txtDescricao_produto.setColumns(20);
+        txtDescricao_produto.setRows(1);
+        panDescricao.setViewportView(txtDescricao_produto);
+
+        lblPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPreco.setText("Preço:");
+
+        txtPreco_produto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPreco_produto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPreco_produtoActionPerformed(evt);
+            }
+        });
+        txtPreco_produto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPreco_produtoFocusLost(evt);
+            }
+        });
+        txtPreco_produto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPreco_produtoKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanCadastroLayout = new javax.swing.GroupLayout(PanCadastro);
+        PanCadastro.setLayout(PanCadastroLayout);
+        PanCadastroLayout.setHorizontalGroup(
+            PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanCadastroLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPreco_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(lblId_produto)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtId_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPreco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanCadastroLayout.createSequentialGroup()
+                        .addComponent(botSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botCancelar)))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        PanCadastroLayout.setVerticalGroup(
+            PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanCadastroLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtId_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId_produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPreco_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
+                .addGroup(PanCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botSalvar)
+                    .addComponent(botLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botCancelar))
+                .addGap(60, 60, 60))
+        );
+
+        pangProduto.addTab("Cadastrar", PanCadastro);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pangProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pangProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pangProduto.getAccessibleContext().setAccessibleName("Cadastrar Produto");
+
+        getAccessibleContext().setAccessibleName("Cadastrar Produto");
+
+        pack();
+    }// </editor-fold>                        
+    
+    private void txtPesquisa_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisa_produtoActionPerformed
+        pesquisar();
+    }//GEN-LAST:event_txtPesquisa_produtoActionPerformed
+
+    private void txtPesquisa_produtoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisa_produtoKeyReleased
+        pesquisar();
+    }//GEN-LAST:event_txtPesquisa_produtoKeyReleased
+
+    private void botNovo_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botNovo_produtoActionPerformed
+        FrmPrincipal.frmCadProduto.setClosable(false);
+        FrmPrincipal.frmCadProduto.setIconifiable(false);
+        txtId_produto.setText("");
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        txtPreco_produto.setText("");
+        pangProduto.setSelectedIndex(0);
+        pangProduto.setEnabledAt(1, false);
+        pangProduto.setEnabledAt(1, true);
+        pangProduto.setSelectedIndex(1);
+        txtNome_produto.requestFocus();
+        modo="novo";
+    }//GEN-LAST:event_botNovo_produtoActionPerformed
+
+    private void botEditar_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEditar_produtoActionPerformed
+
+        modo="editar";
+        int i;
+        try{
+            for(i=0;i<=tblProduto.getSelectedRow();i++){
+                rsPesquisa.next(); // acha o registro que o usuário clicou
+            }
+            FrmPrincipal.frmCadProduto.setClosable(false);
+            FrmPrincipal.frmCadProduto.setIconifiable(false);
+            pangProduto.setEnabledAt(1, true);
+            pangProduto.setSelectedIndex(1);
+            txtId_produto.setText(rsPesquisa.getString("id_produto"));
+            txtNome_produto.setText(rsPesquisa.getString("nome_produto"));
+            txtDescricao_produto.setText(rsPesquisa.getString("descricao_produto"));
+            txtPreco_produto.setText(ValidaPreco.formatarPreco(rsPesquisa.getString("preco_produto")));
+
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"Erro na edição: " + ex);
+            Logger.getLogger(FrmCadProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_botEditar_produtoActionPerformed
+
+    private void botExcluir_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botExcluir_produtoActionPerformed
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            "Deseja realmente excluir este produto?","Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        ResultSet listProduto;
+        int i;
+        try{
+            listProduto=cnnProduto.consultar("SELECT * FROM tb_produto;");
+            for(i=0;i<=tblProduto.getSelectedRow();i++){
+                listProduto.next();
+            }
+            cnnProduto.excluirProduto(Integer.valueOf(listProduto.getString("id_produto")));
+            JOptionPane.showMessageDialog(null,"Produto excluído com sucesso!");
+            pesquisar();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro na exclusão: " + e);
+        }
+        }
+    }//GEN-LAST:event_botExcluir_produtoActionPerformed
+
+    private void tblProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblProdutoFocusGained
+        if(modo.equals("pesquisa")){
+            botNovo_produto.setEnabled(true);
+            botEditar_produto.setEnabled(true);
+            botExcluir_produto.setEnabled(true);
+        }
+    }//GEN-LAST:event_tblProdutoFocusGained
+
+    private void tblProdutoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblProdutoFocusLost
+
+    }//GEN-LAST:event_tblProdutoFocusLost
+
+    private void tblProdutoComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tblProdutoComponentShown
+
+    }//GEN-LAST:event_tblProdutoComponentShown
+
+    private void botSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botSalvarActionPerformed
+        String strTipo;
+        int idCidade,i;
+        try{
+            if(txtNome_produto.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Informe o nome do produto!");
+                txtNome_produto.requestFocus();
+                return;
+            }
+            if(JOptionPane.showConfirmDialog(pangProduto,
+                "Deseja realmente salvar os dados?","Confirmação",
+                JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            if(modo.equals("novo")){
+                cnnProduto.inserirProduto(
+                    txtNome_produto.getText(),
+                    Float.parseFloat(txtPreco_produto.getText().replace(',','.' ).replace('R', '0').replace('$', '0').replace(' ', '0')),
+                    txtDescricao_produto.getText()
+
+                );
+            }else if (modo.equals("editar")){
+                cnnProduto.editarProduto(
+                    Integer.valueOf(txtId_produto.getText()),
+                    txtNome_produto.getText(),
+                    Float.parseFloat(txtPreco_produto.getText().replace(',','.' ).replace('R', '0').replace('$', '0').replace(' ', '0')),
+                    txtDescricao_produto.getText());
+            }
+            JOptionPane.showMessageDialog(null,"Dados salvos com sucesso!");
+            pangProduto.setSelectedIndex(0);
+            pangProduto.setEnabledAt(1, false);
+            txtId_produto.setText("");
+            txtNome_produto.setText("");
+            txtDescricao_produto.setText("");
+            txtPreco_produto.setText("");
+            modo="pesquisa";
+            botNovo_produto.setEnabled(true);
+            FrmPrincipal.frmCadProduto.setClosable(true);
+            FrmPrincipal.frmCadProduto.setIconifiable(true);
+            pesquisar();
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro no salvamento: " + e);
+        }
+    }//GEN-LAST:event_botSalvarActionPerformed
+
+    private void botLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botLimparActionPerformed
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            "Deseja realmente limpar todos os dados da tela?","Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        txtPreco_produto.setText("");
+
+        }
+    }//GEN-LAST:event_botLimparActionPerformed
+
+    private void botCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCancelarActionPerformed
+        String msg="";
+        if(modo.equals("novo"))
+        msg="Deseja realmente cancelar o novo cadastro?";
+        else if(modo.equals("editar"))
+        msg="Deseja realmente cancelar a edição?";
+
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            msg,"Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        txtId_produto.setText("");
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        pangProduto.setSelectedIndex(0);
+        pangProduto.setEnabledAt(1, false);
+        modo="pesquisa";
+        botNovo_produto.setEnabled(true);
+        FrmPrincipal.frmCadProduto.setClosable(true);
+        FrmPrincipal.frmCadProduto.setIconifiable(true);
+        pesquisar();
+        }
+    }//GEN-LAST:event_botCancelarActionPerformed
+
+    private void txtNome_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome_produtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome_produtoActionPerformed
+
+    private void txtPreco_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreco_produtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPreco_produtoActionPerformed
+
+    private void txtPreco_produtoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPreco_produtoFocusLost
+        if(!txtPreco_produto.getText().isEmpty())
+        txtPreco_produto.setText(ValidaPreco.formatarPreco(txtPreco_produto.getText()));
+    }//GEN-LAST:event_txtPreco_produtoFocusLost
+
+    private void txtPreco_produtoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPreco_produtoKeyPressed
+        ValidaPreco.verificarDigitacaoPreco(txtPreco_produto, evt);
+    }//GEN-LAST:event_txtPreco_produtoKeyPressed
+
+    private void txtPreco_produtoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPreco_produtoKeyReleased
+
+    }//GEN-LAST:event_txtPreco_produtoKeyReleased
+
+    private void txtPreco_produtoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPreco_produtoKeyTyped
+
+    }//GEN-LAST:event_txtPreco_produtoKeyTyped
+
+    private void pangProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pangProdutoFocusGained
+        if(pangProduto.getSelectedIndex()==0)
+        txtPesquisa_produto.requestFocus();
+        else
+        txtNome_produto.requestFocus();
+    }//GEN-LAST:event_pangProdutoFocusGained
+
+    private void txtPesquisa_produto1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPesquisa_produto1FocusGained
+        botEditar_produto.setEnabled(false);
+        botExcluir_produto.setEnabled(false);
+        if(!modo.equals("pesquisa")){
+            botNovo_produto.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtPesquisa_produto1FocusGained
+
+    private void txtPesquisa_produto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisa_produto1ActionPerformed
+        pesquisar();
+    }//GEN-LAST:event_txtPesquisa_produto1ActionPerformed
+
+    private void txtPesquisa_produto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisa_produto1KeyReleased
+        pesquisar();
+    }//GEN-LAST:event_txtPesquisa_produto1KeyReleased
+
+    private void botNovo_produto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botNovo_produto1ActionPerformed
+        FrmPrincipal.frmCadProduto.setClosable(false);
+        FrmPrincipal.frmCadProduto.setIconifiable(false);
+        txtId_produto.setText("");
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        txtPreco_produto.setText("");
+        pangProduto.setSelectedIndex(0);
+        pangProduto.setEnabledAt(1, false);
+        pangProduto.setEnabledAt(1, true);
+        pangProduto.setSelectedIndex(1);
+        txtNome_produto.requestFocus();
+        modo="novo";
+    }//GEN-LAST:event_botNovo_produto1ActionPerformed
+
+    private void botEditar_produto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEditar_produto1ActionPerformed
+
+        modo="editar";
+        int i;
+        try{
+            for(i=0;i<=tblProduto.getSelectedRow();i++){
+                rsPesquisa.next(); // acha o registro que o usuário clicou
+            }
+            FrmPrincipal.frmCadProduto.setClosable(false);
+            FrmPrincipal.frmCadProduto.setIconifiable(false);
+            pangProduto.setEnabledAt(1, true);
+            pangProduto.setSelectedIndex(1);
+            txtId_produto.setText(rsPesquisa.getString("id_produto"));
+            txtNome_produto.setText(rsPesquisa.getString("nome_produto"));
+            txtDescricao_produto.setText(rsPesquisa.getString("descricao_produto"));
+            txtPreco_produto.setText(ValidaPreco.formatarPreco(rsPesquisa.getString("preco_produto")));
+
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"Erro na edição: " + ex);
+            Logger.getLogger(FrmCadProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_botEditar_produto1ActionPerformed
+
+    private void botExcluir_produto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botExcluir_produto1ActionPerformed
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            "Deseja realmente excluir este produto?","Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        ResultSet listProduto;
+        int i;
+        try{
+            listProduto=cnnProduto.consultar("SELECT * FROM tb_produto;");
+            for(i=0;i<=tblProduto.getSelectedRow();i++){
+                listProduto.next();
+            }
+            cnnProduto.excluirProduto(Integer.valueOf(listProduto.getString("id_produto")));
+            JOptionPane.showMessageDialog(null,"Produto excluído com sucesso!");
+            pesquisar();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro na exclusão: " + e);
+        }
+        }
+    }//GEN-LAST:event_botExcluir_produto1ActionPerformed
+
+    private void tblProduto1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblProduto1FocusGained
+        if(modo.equals("pesquisa")){
+            botNovo_produto.setEnabled(true);
+            botEditar_produto.setEnabled(true);
+            botExcluir_produto.setEnabled(true);
+        }
+    }//GEN-LAST:event_tblProduto1FocusGained
+
+    private void tblProduto1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tblProduto1FocusLost
+
+    }//GEN-LAST:event_tblProduto1FocusLost
+
+    private void tblProduto1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tblProduto1ComponentShown
+
+    }//GEN-LAST:event_tblProduto1ComponentShown
+
+    private void botSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botSalvar1ActionPerformed
+        String strTipo;
+        int idCidade,i;
+        try{
+            if(txtNome_produto.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Informe o nome do produto!");
+                txtNome_produto.requestFocus();
+                return;
+            }
+            if(JOptionPane.showConfirmDialog(pangProduto,
+                "Deseja realmente salvar os dados?","Confirmação",
+                JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            if(modo.equals("novo")){
+                cnnProduto.inserirProduto(
+                    txtNome_produto.getText(),
+                    Float.parseFloat(txtPreco_produto.getText().replace(',','.' ).replace('R', '0').replace('$', '0').replace(' ', '0')),
+                    txtDescricao_produto.getText()
+
+                );
+            }else if (modo.equals("editar")){
+                cnnProduto.editarProduto(
+                    Integer.valueOf(txtId_produto.getText()),
+                    txtNome_produto.getText(),
+                    Float.parseFloat(txtPreco_produto.getText().replace(',','.' ).replace('R', '0').replace('$', '0').replace(' ', '0')),
+                    txtDescricao_produto.getText());
+            }
+            JOptionPane.showMessageDialog(null,"Dados salvos com sucesso!");
+            pangProduto.setSelectedIndex(0);
+            pangProduto.setEnabledAt(1, false);
+            txtId_produto.setText("");
+            txtNome_produto.setText("");
+            txtDescricao_produto.setText("");
+            txtPreco_produto.setText("");
+            modo="pesquisa";
+            botNovo_produto.setEnabled(true);
+            FrmPrincipal.frmCadProduto.setClosable(true);
+            FrmPrincipal.frmCadProduto.setIconifiable(true);
+            pesquisar();
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro no salvamento: " + e);
+        }
+    }//GEN-LAST:event_botSalvar1ActionPerformed
+
+    private void botLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botLimpar1ActionPerformed
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            "Deseja realmente limpar todos os dados da tela?","Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        txtPreco_produto.setText("");
+
+        }
+    }//GEN-LAST:event_botLimpar1ActionPerformed
+
+    private void botCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCancelar1ActionPerformed
+        String msg="";
+        if(modo.equals("novo"))
+        msg="Deseja realmente cancelar o novo cadastro?";
+        else if(modo.equals("editar"))
+        msg="Deseja realmente cancelar a edição?";
+
+        if(JOptionPane.showConfirmDialog(pangProduto,
+            msg,"Confirmação",
+            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+        txtId_produto.setText("");
+        txtNome_produto.setText("");
+        txtDescricao_produto.setText("");
+        pangProduto.setSelectedIndex(0);
+        pangProduto.setEnabledAt(1, false);
+        modo="pesquisa";
+        botNovo_produto.setEnabled(true);
+        FrmPrincipal.frmCadProduto.setClosable(true);
+        FrmPrincipal.frmCadProduto.setIconifiable(true);
+        pesquisar();
+        }
+    }//GEN-LAST:event_botCancelar1ActionPerformed
+
+    private void txtNome_produto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome_produto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome_produto1ActionPerformed
+
+    private void pangProduto1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pangProduto1FocusGained
+        if(pangProduto.getSelectedIndex()==0)
+        txtPesquisa_produto.requestFocus();
+        else
+        txtNome_produto.requestFocus();
+    }//GEN-LAST:event_pangProduto1FocusGained
 
     /**
      * @param args the command line arguments
@@ -79,5 +1382,47 @@ public class GuiCadProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanCadastro;
+    private javax.swing.JPanel PanCadastro1;
+    private javax.swing.JPanel PanPesquisa;
+    private javax.swing.JPanel PanPesquisa1;
+    private javax.swing.JButton botCancelar;
+    private javax.swing.JButton botCancelar1;
+    private javax.swing.JButton botEditar_produto;
+    private javax.swing.JButton botEditar_produto1;
+    private javax.swing.JButton botExcluir_produto;
+    private javax.swing.JButton botExcluir_produto1;
+    private javax.swing.JButton botLimpar;
+    private javax.swing.JButton botLimpar1;
+    private javax.swing.JButton botNovo_produto;
+    private javax.swing.JButton botNovo_produto1;
+    private javax.swing.JButton botSalvar;
+    private javax.swing.JButton botSalvar1;
+    private javax.swing.JLabel lblId_produto;
+    private javax.swing.JLabel lblId_produto1;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNome1;
+    private javax.swing.JLabel lblObs;
+    private javax.swing.JLabel lblObs1;
+    private javax.swing.JLabel lblPesquisar2;
+    private javax.swing.JLabel lblPesquisar3;
+    private javax.swing.JLabel lblPreco;
+    private javax.swing.JScrollPane panDescricao;
+    private javax.swing.JScrollPane panDescricao1;
+    private javax.swing.JScrollPane panTabela;
+    private javax.swing.JScrollPane panTabela1;
+    private javax.swing.JTabbedPane pangProduto;
+    private javax.swing.JTabbedPane pangProduto1;
+    private javax.swing.JTable tblProduto;
+    private javax.swing.JTable tblProduto1;
+    private javax.swing.JTextArea txtDescricao_produto;
+    private javax.swing.JTextArea txtDescricao_produto1;
+    private javax.swing.JTextField txtId_produto;
+    private javax.swing.JTextField txtId_produto1;
+    private javax.swing.JTextField txtNome_produto;
+    private javax.swing.JTextField txtNome_produto1;
+    private javax.swing.JTextField txtPesquisa_produto;
+    private javax.swing.JTextField txtPesquisa_produto1;
+    private javax.swing.JTextField txtPreco_produto;
     // End of variables declaration//GEN-END:variables
 }
