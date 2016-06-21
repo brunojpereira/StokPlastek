@@ -109,9 +109,6 @@
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Stok 1.0"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Stok 1.0"/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="bpgSplash">
           <Properties>

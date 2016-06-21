@@ -5,13 +5,13 @@
  */
 package gui;
 
+import dao.ConexaoMySQL;
 import bean.LoginBean;
 import controller.LoginController;
 import dao.*;
 import static java.awt.event.KeyEvent.VK_ENTER;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
  */
 
 public class GuiLogin extends javax.swing.JFrame {
-    public static ResultSet rsLogin = null;
     List<LoginBean> lista;
     /**
      * Creates new form FrmLogin
@@ -62,7 +61,7 @@ public class GuiLogin extends javax.swing.JFrame {
         panLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lblNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Cadeado.png"))); // NOI18N
+        lblNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Cadeado.png"))); // NOI18N
         lblNome.setText("Nome:");
 
         txtNome_usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -78,7 +77,7 @@ public class GuiLogin extends javax.swing.JFrame {
         });
 
         lblSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Chave2.png"))); // NOI18N
+        lblSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Chave2.png"))); // NOI18N
         lblSenha.setText("Senha:");
 
         txtSenha_usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -94,7 +93,7 @@ public class GuiLogin extends javax.swing.JFrame {
         });
 
         botEntrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        botEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Entrar.png"))); // NOI18N
+        botEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Entrar.png"))); // NOI18N
         botEntrar.setText("Entrar");
         botEntrar.setIconTextGap(15);
         botEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,26 +162,19 @@ public class GuiLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNome_usuarioActionPerformed
 
     private boolean verificarLogin(){
-        try {
-            for(LoginBean i : lista){
-                if(i.getUsuario().equals(txtNome_usuario.getText())){
-                    if(i.getSenha().equals(String.valueOf(txtSenha_usuario.getPassword()))){
-                        this.setVisible(false);
-                        
-                        new GuiPrincipal().setVisible(true);
-                        return true;
-                    }
+        for(LoginBean i : lista){
+            if(i.getUsuario().equals(txtNome_usuario.getText())){
+                if(i.getSenha().equals(String.valueOf(txtSenha_usuario.getPassword()))){
+                    this.setVisible(false);
+
+                    new GuiPrincipal().setVisible(true);
+                    return true;
                 }
             }
-            JOptionPane.showMessageDialog(this,"Senha ou usuário incorreto(s)");
-            txtNome_usuario.requestFocus();
-            rsLogin.beforeFirst();
-            return false;
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this,"Erro ao entrar: " + ex);
-            Logger.getLogger(GuiLogin.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
         }
+        JOptionPane.showMessageDialog(this,"Senha ou usuário incorreto(s)");
+        txtNome_usuario.requestFocus();
+        return false;
     }
     
     private void botEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEntrarActionPerformed

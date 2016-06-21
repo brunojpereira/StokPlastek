@@ -19,7 +19,7 @@ import java.util.List;
 public class LoginDao {
 	
 	public List<LoginBean> consultar() throws ClassNotFoundException, SQLException {
-		String sql = "SELECT * FROM tb_login";
+		String sql = "SELECT * FROM tb_usuario";
 		
 		PreparedStatement comandoSql = 
 				ConexaoMySQL.getInstance().prepareStatement(sql);
@@ -30,9 +30,9 @@ public class LoginDao {
 		
 		while (rs.next()){
 			LoginBean login = new LoginBean();
-			login.setUsuario(rs.getString("usuario_login"));
-			login.setSenha(rs.getString("senha_login"));
-			
+			login.setUsuario(rs.getString("nome_usuario"));
+			login.setSenha(rs.getString("senha_usuario"));
+			login.setFuncao(rs.getInt("funcao_usuario"));
 			lista.add(login);
 		}
 		return lista;

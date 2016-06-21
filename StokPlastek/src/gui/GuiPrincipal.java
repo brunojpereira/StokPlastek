@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pacoteframe;
+package gui;
 
 import java.beans.PropertyVetoException;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pacoteconexao.ConexaoMySQL;
+
 import javax.swing.*;
-import pacotevalidacao.ValidaDataHora;
 
 
 /**
@@ -21,9 +20,9 @@ import pacotevalidacao.ValidaDataHora;
  */
 
 public class GuiPrincipal extends javax.swing.JFrame {
-    public static JInternalFrame frmCadCargo = new JInternalFrame("Cadastrar Cargos", false,true,false,true);
-    public static JInternalFrame frmCadCliente = new JInternalFrame("Cadastrar Clientes", false,true,false,true);
-    public static JInternalFrame frmCadCidade = new JInternalFrame("Cadastrar Cidades", false,true,false,true);
+    public static JInternalFrame frmCargo = new JInternalFrame("Cadastrar Cargos", false,true,false,true);
+    public static JInternalFrame frmCliente = new JInternalFrame("Cadastrar Clientes", false,true,false,true);
+    public static JInternalFrame frmCidade = new JInternalFrame("Cadastrar Cidades", false,true,false,true);
     public static JInternalFrame frmCadProduto = new JInternalFrame("Cadastrar Produtos", false,true,false,true);
     public static JInternalFrame frmNovoPedido = new JInternalFrame("Pedidos", false,true,false,true);
     public static JInternalFrame frmCadFuncionario = new JInternalFrame("Cadastrar Funcionarios", false,true,false,true);
@@ -41,15 +40,6 @@ public class GuiPrincipal extends javax.swing.JFrame {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);  
-        try {
-            lblUsuario.setText(FrmLogin.rsLogin.getString("nome_usuario")+" operando o sistema");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro durante desativação: " + ex);
-            Logger.getLogger(GuiPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        lblData.setText(ValidaDataHora.DataAtual());
-        
-
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,7 +78,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         imnSobreSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Plastek Stok - Gerenciamento de Produção e de Pessoal");
+        setTitle("Stok - Gerenciamento de Produção e de Pessoal");
         setMinimumSize(new java.awt.Dimension(800, 600));
         setName("frmPrincipal"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -108,7 +98,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jToolBar1.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
 
         botNovoPedido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        botNovoPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Pedidos.png"))); // NOI18N
+        botNovoPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Pedidos.png"))); // NOI18N
         botNovoPedido.setText("Pedidos");
         botNovoPedido.setFocusable(false);
         botNovoPedido.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -121,7 +111,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jToolBar1.add(botNovoPedido);
 
         botLinhaProducao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        botLinhaProducao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacoteicones/Editar.png"))); // NOI18N
+        botLinhaProducao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Editar.png"))); // NOI18N
         botLinhaProducao.setText("Linha de Produção");
         botLinhaProducao.setFocusable(false);
         botLinhaProducao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -332,30 +322,30 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void imnCadCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCadCargosActionPerformed
-        criarQuadroInterno(new FrmCadCargo(), frmCadCargo);
+        criarQuadroInterno(new GuiCargo(), frmCargo);
     }//GEN-LAST:event_imnCadCargosActionPerformed
     
     private void imnCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCadClientesActionPerformed
-        criarQuadroInterno(new FrmCadCliente(), frmCadCliente);
+        //criarQuadroInterno(new FrmCadCliente(), frmCadCliente);
         
     }//GEN-LAST:event_imnCadClientesActionPerformed
     private void frmCargoWindowClosing(java.awt.event.WindowEvent evt){
         
     }
     private void imnCadCidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCadCidadesActionPerformed
-        criarQuadroInterno(new FrmCadCidade(), frmCadCidade);
+        criarQuadroInterno(new GuiCidade(), frmCidade);
     }//GEN-LAST:event_imnCadCidadesActionPerformed
 
     private void imnCadProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCadProdutosActionPerformed
-        criarQuadroInterno(new FrmCadProduto(), frmCadProduto);
+        //criarQuadroInterno(new FrmCadProduto(), frmCadProduto);
     }//GEN-LAST:event_imnCadProdutosActionPerformed
 
     private void imnNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnNovoPedidoActionPerformed
-        criarQuadroInterno(new FrmPedidos(-1), frmNovoPedido);
+        //criarQuadroInterno(new FrmPedidos(-1), frmNovoPedido);
     }//GEN-LAST:event_imnNovoPedidoActionPerformed
 
     private void imnCadFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCadFuncionariosActionPerformed
-        criarQuadroInterno(new FrmCadFuncionario(), frmCadFuncionario);
+        //criarQuadroInterno(new FrmCadFuncionario(), frmCadFuncionario);
     }//GEN-LAST:event_imnCadFuncionariosActionPerformed
 
     private void calendarioPrincipalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioPrincipalKeyPressed
@@ -383,40 +373,40 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_calendarioPrincipalPropertyChange
 
     private void imnLinhaProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnLinhaProducaoActionPerformed
-        new FrmLotes().setVisible(true);
+        //new FrmLotes().setVisible(true);
         
     }//GEN-LAST:event_imnLinhaProducaoActionPerformed
 
     private void imnTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTarefasActionPerformed
-        criarQuadroInterno(new FrmTarefas(), frmTarefas);
+        //criarQuadroInterno(new FrmTarefas(), frmTarefas);
     }//GEN-LAST:event_imnTarefasActionPerformed
 
     private void imnOcupacaoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnOcupacaoFuncActionPerformed
-        criarQuadroInterno(new FrmConsultaFuncionarios(), frmOcupacaoFuncionarios);
+        //criarQuadroInterno(new FrmConsultaFuncionarios(), frmOcupacaoFuncionarios);
     }//GEN-LAST:event_imnOcupacaoFuncActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        FrmLogin.cnnLogin.desconectar();
+        //FrmLogin.cnnLogin.desconectar();
     }//GEN-LAST:event_formWindowClosed
 
     private void imnBuscarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnBuscarLoteActionPerformed
-        criarQuadroInterno(new FrmBuscaLote(), frmBuscarLote);
+        //criarQuadroInterno(new FrmBuscaLote(), frmBuscarLote);
     }//GEN-LAST:event_imnBuscarLoteActionPerformed
 
     private void imnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnHistoricoActionPerformed
-        criarQuadroInterno(new FrmHistorico(), frmHistorico);
+        //criarQuadroInterno(new FrmHistorico(), frmHistorico);
     }//GEN-LAST:event_imnHistoricoActionPerformed
 
     private void botNovoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botNovoPedidoActionPerformed
-        criarQuadroInterno(new FrmPedidos(-1), frmNovoPedido);
+        //criarQuadroInterno(new FrmPedidos(-1), frmNovoPedido);
     }//GEN-LAST:event_botNovoPedidoActionPerformed
 
     private void botLinhaProducaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botLinhaProducaoActionPerformed
-        new FrmLotes().setVisible(true);
+        //new FrmLotes().setVisible(true);
     }//GEN-LAST:event_botLinhaProducaoActionPerformed
 
     private void imnSobreSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnSobreSistemaActionPerformed
-        new FrmSobre().setVisible(true);
+        //new FrmSobre().setVisible(true);
     }//GEN-LAST:event_imnSobreSistemaActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

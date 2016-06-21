@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,13 +13,13 @@ public class CargoBean {
     int idCargo;
     String nomeCargo,descCargo;
     
-    CargoBean(int id,String nome,String desc){
+    public CargoBean(int id,String nome,String desc){
         this.idCargo=id;
         this.descCargo=desc;
         this.nomeCargo=nome;
     }
     
-    CargoBean(String nome,String desc){
+    public CargoBean(String nome,String desc){
         this.descCargo=desc;
         this.nomeCargo=nome;
     }
